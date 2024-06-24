@@ -1,0 +1,57 @@
+.containers_orar {
+    width: 98%;
+    overflow-x: auto;
+    /* Păstrează alte stiluri existente pentru containerul orarului */
+  }
+  #tab-orar {
+    width: 100%;
+    /* Păstrează alte stiluri existente pentru tabelul orarului */
+  }
+    #tab-orar {
+      border-spacing: 0px;
+      border-collapse: collapse;
+    }
+    
+    caption {
+      caption-side: bottom;
+    }
+    
+    #tab-orar th {
+      border: 1px solid #000;
+      padding: 8px;
+      font-weight: bold;
+    }
+    
+    #tab-orar td {
+      border: 1px solid #000;
+      padding: 8px;
+    }
+    
+    #tab-orar tbody tr {
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    #tab-orar tbody tr:nth-child(even) {
+      color: var(--culoare1);
+    }
+    
+    #tab-orar tbody tr:nth-child(odd) {
+      color: var(--culoare5);
+    }
+    
+    #tab-orar tbody tr:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      transition: background-color 0.75s ease;
+    }
+    
+    #tab-orar tbody tr:hover td {
+      font-size: 120%;
+      transition: font-size 0.75s ease;
+    }
+  
+    .containers_orar {
+      overflow-x: auto; 
+      max-width: 100%; 
+    }
+  
+  

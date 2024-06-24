@@ -1,0 +1,9 @@
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid blue; /* Adaugă o bordură de 2px solidă de culoare albastră */
+    border-radius: 10px; /* Adaugă o raza de colt de 10px pentru a rotunji colturile */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adaugă o umbra de 10px */
+}

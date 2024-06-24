@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta name="description" content="AUTOSELLER, reprezentată de vânzări mașini cu site online.">
+    <meta name="keywords" content="AutoSeller, mașini, bmw, audi, lamborghini, dacia, rate">
+    <title>AutoSeller - Detalii Mașină</title>
+    <link rel="stylesheet" type="text/css" href="/resurse/css/produs.css">
+    <%- include("../fragmente/head") %>
+</head>
+<body>
+    <%- include("../fragmente/header") %>
+    <main>
+        <section class="section-masina">
+            <h2>Pagină mașină</h2>
+            <article id="art-masina">
+                <h3><span class="nume"><%= masina.nume %></span></h3>
+                <p>Pret: <span class="pret"><%= masina.pret %> </span></p>
+                <p>Descriere: <span class="descriere"><%= masina.descriere %> </span></p>
+                <p>An fabricație: <span class="an_fabricatie"><%= masina.an_fabricatie %> </span></p>
+                <p>Consum combustibil: <span class="consum_combustibil"><%= masina.consum_combustibil %> l/100 km</span></p>
+                <p>Tip combustibil: <span class="tip_combustibil"><%= masina.tip_combustibil %> </span></p>
+                <p>Tip mașină: <span class="tip_masina"><%= masina.tip_masina %> </span></p>
+                <p>Dotări: <span class="dotari"><%= masina.dotari.join(', ') %> </span></p>
+                <p>Garanție: <span class="garantie"><%= masina.garantie ? 'Da' : 'Nu' %> </span></p>
+                <p>Data adăugare: <span class="data_adaugare"><%= masina.data_adaugare %> </span></p>
+                <figure class="imag-masina">
+                    <img src="/resurse/imagini/produse/<%= masina.imagine %>" alt="[imagine <%= masina.nume %>]">
+                </figure>
+            </article>
+        </section>
+    </main>
+    <%- include("../fragmente/footer") %>
+</body>
+</html>

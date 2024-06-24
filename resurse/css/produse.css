@@ -1,0 +1,150 @@
+body {
+    background-color: transparent; /* Setează culoarea de fundal a paginii */
+    font-family: Arial, sans-serif; /* Setează fontul paginii */
+}
+
+main {
+    --padd-main: 1rem; /* Definire variabilă pentru padding */
+    padding-left: var(--padd-main); /* Setează paddingul la stânga */
+    padding-right: var(--padd-main); /* Setează paddingul la dreapta */
+    margin-top: 2rem; /* Setează marja de sus */
+}
+
+.grid-produse {
+    display: grid; /* Afișează elementele într-o grilă */
+    grid-template-columns: 1fr 1fr; /* Setează două coloane de dimensiuni egale */
+    grid-gap: 1rem; /* Setează spațiul dintre elementele grilei */
+}
+
+.grid-produse .produs {
+    border-radius: 0.5rem; /* Colțuri rotunjite pentru elementele produs */
+    box-shadow: 0px 0px 0.8rem 0.3rem grey; /* Umbra elementelor produs */
+    overflow: hidden; /* Ascunde conținutul care depășește dimensiunile elementului */
+    padding: 1rem; /* Setează paddingul intern */
+    background-color: transparent; /* Setează fundalul transparent */
+    border: 3px solid darkblue; /* Border gros și albastru închis */
+}
+
+.grid-produse .produs h3 {
+    background-color: var(--culoare-roz-inchis); /* Setează fundalul pentru titlu */
+    text-align: center; /* Centrează textul */
+    margin-top: 0; /* Elimină marja de sus */
+    padding-top: 0.5rem; /* Padding de sus pentru titlu */
+    padding-bottom: 0.5rem; /* Padding de jos pentru titlu */
+    color: var(--culoare1); /* Setează culoarea textului */
+    border-radius: 0.5rem; /* Colțuri rotunjite pentru titlu */
+}
+
+.grid-produse .produs h3 a {
+    color: var(--culoare1); /* Setează culoarea linkului */
+    text-decoration: none; /* Elimină sublinierea linkului */
+}
+
+.grid-produse .produs h3 a:hover {
+    color: transparent; /* Schimbă culoarea linkului la hover */
+}
+
+.grid-produse .produs figure {
+    text-align: center; /* Centrează conținutul figurii */
+}
+
+.grid-produse .produs figure img {
+    border: 1px solid grey; /* Border gri pentru imagine */
+    max-width: 100%; /* Setează lățimea maximă la 100% */
+    height: auto; /* Setează înălțimea automată */
+    border-radius: 0.5rem; /* Colțuri rotunjite pentru imagine */
+    width: 150px; /* Setează lățimea imaginii la 150px */
+    height: 100px; /* Setează înălțimea imaginii la 100px */
+}
+
+.grid-produse .produs .info-prod {
+    display: flex; /* Afișează elementele într-un container flexibil */
+    justify-content: space-around; /* Spațierea elementelor în jurul spațiului disponibil */
+    background-color: var(--cl-marcare); /* Setează culoarea de fundal pentru info-prod */
+    padding: 0.5rem; /* Padding intern pentru info-prod */
+    border-radius: 0.5rem; /* Colțuri rotunjite pentru info-prod */
+    margin-bottom: 1rem; /* Marja de jos pentru info-prod */
+}
+
+.grid-produse .produs .info-prod p {
+    text-align: center; /* Centrează textul */
+    width: 30%; /* Setează lățimea la 30% */
+    font-weight: bold; /* Setează fontul îngroșat */
+}
+
+.grid-produse .produs p.categorie {
+    text-align: center; /* Centrează textul */
+    font-weight: bold; /* Setează fontul îngroșat */
+}
+
+.info-produse {
+    background-color: var(--cl-marcare); /* Setează fundalul pentru info-produse */
+    padding: 0.2rem; /* Padding intern pentru info-produse */
+    box-shadow: 0px 0px 0.5rem 0.15rem grey; /* Umbra pentru info-produse */
+    border-radius: 0.5rem; /* Colțuri rotunjite pentru info-produse */
+}
+
+.produs {
+    position: relative; /* Setează poziționarea relativă pentru produs */
+}
+
+.selecteaza-cos {
+    display: inline-block; /* Afișează ca bloc inline */
+    background-color: var(--culoare-mov); /* Setează fundalul mov */
+    position: absolute; /* Setează poziționarea absolută */
+    bottom: 0.5rem; /* Setează poziția de jos */
+    right: 0.5rem; /* Setează poziția din dreapta */
+    border-radius: 0.5rem; /* Colțuri rotunjite */
+    text-align: center; /* Centrează textul */
+    padding: 0.3rem; /* Padding intern */
+    border: 1px solid transparent; /* Border transparent */
+}
+
+.selecteaza-cos:hover {
+    background-color: var(--cl-marcare); /* Schimbă fundalul la hover */
+    border: 1px solid var(--culoare-mov); /* Border mov la hover */
+}
+
+.chenar-filtre {
+    border: 3px solid rgb(9, 9, 184); /* Border gros și albastru închis */
+    border-radius: 0.5rem; /* Colțuri rotunjite */
+    padding: 1rem; /* Padding intern */
+    margin-bottom: 1rem; /* Marja de jos */
+    background-color: transparent; /* Fundal transparent */
+    box-shadow: 0px 0px 0.8rem 0.3rem grey; /* Umbra pentru chenar-filtre */
+}
+
+.chenar-filtre label,
+.chenar-filtre input[type="text"],
+.chenar-filtre input[type="number"],
+.chenar-filtre select,
+.chenar-filtre button {
+    margin-bottom: 0.5rem; /* Marja de jos */
+}
+
+.chenar-filtre p {
+    margin: 0.5rem 0; /* Marja sus și jos */
+}
+
+.chenar-filtre input[type="range"] {
+    width: 100%; /* Setează lățimea la 100% */
+}
+
+.chenar-filtre button {
+    background-color: darkblue; /* Fundal albastru închis */
+    color: white; /* Text alb */
+    border: none; /* Fără border */
+    padding: 0.5rem 1rem; /* Padding intern */
+    cursor: pointer; /* Schimbă cursorul la pointer */
+    border-radius: 0.5rem; /* Colțuri rotunjite */
+    margin-right: 0.5rem; /* Marja din dreapta */
+}
+
+.chenar-filtre button:hover {
+    background-color: var(--culoare-roz-inchis); /* Schimbă fundalul la hover */
+}
+
+.chenar-filtre input[type="radio"],
+.chenar-filtre input[type="checkbox"] {
+    margin-right: 0.5rem; /* Marja din dreapta */
+}

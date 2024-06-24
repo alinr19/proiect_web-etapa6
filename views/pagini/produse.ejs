@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta name="description" content="AUTOSELLER, reprezentată de vânzări mașini cu site online."> <!-- Descrierea site-ului -->
+    <meta name="keywords" content="AutoSeller, mașini, bmw, audi, lamborghini, dacia, rate"> <!-- Cuvinte cheie pentru SEO -->
+    <title>AutoSeller - Produse</title> <!-- Titlul paginii -->
+    <link rel="stylesheet" type="text/css" href="/resurse/css/produse.css"> <!-- Legătura către fișierul CSS -->
+    <%- include("../fragmente/head") %> <!-- Include fragmentul head (probabil conține meta-taguri și alte stilizări) -->
+</head>
+<body>
+    <%- include("../fragmente/header") %> <!-- Include fragmentul header (probabil conține navigarea) -->
+    <main>
+        <div class="chenar-filtre"> <!-- Div pentru filtrarea produselor -->
+            <label>Nume: <input type="text" id="inp-nume"></label> <!-- Input pentru numele mașinii -->
+            <div>Consum combustibil: <!-- Grup de radio buttons pentru filtrarea după consum combustibil -->
+                <p><label>Economic (consum &lt; 5 l/100 km)
+                    <input id="i_rad1" name="gr_rad" value="0:5" type="radio" />
+                </label></p>
+                <p><label>Mediu (5 &le; consum &lt; 10 l/100 km)
+                    <input id="i_rad2" name="gr_rad" value="5:10" type="radio" />
+                </label></p>
+                <p><label>Ridicat (consum &ge; 10 l/100 km)
+                    <input id="i_rad3" name="gr_rad" value="10:1000000000" type="radio" />
+                </label></p>
+                <p><label>Toate
+                    <input id="i_rad4" checked name="gr_rad" value="toate" type="radio" />
+                </label></p>
+            </div>
+            <label>Pret minim: <input type="range" id="inp-pret" value="0" min="0" max="500000"> <span id="infoRange">(0)</span></label> <!-- Slider pentru filtrarea după preț minim -->
+            <label>Select simplu:
+                <select id="inp-tip_masina"> <!-- Dropdown pentru tipul mașinii -->
+                    <option id="sel-toate" selected value="toate">toate</option> <!-- Opțiunea default "toate" -->
+                    <% for (let opt of locals.optiuni) { %> <!-- Iterează prin opțiunile disponibile și le afișează în dropdown -->
+                        <option value="<%= opt.tip_masina %>"><%= opt.tip_masina %></option>
+                    <% } %>
+                </select>
+            </label>
+            <p>
+                <button id="filtrare">Filtreaza</button> <!-- Buton pentru aplicarea filtrelor -->
+                <button id="resetare">Reseteaza</button><br /> <!-- Buton pentru resetarea filtrelor -->
+                <button id="sortCrescPret">Sorteaza crescator dupa pret</button> <!-- Buton pentru sortarea crescătoare după preț -->
+                <button id="sortDescrescPret">Sorteaza descrescator dupa pret</button><br /> <!-- Buton pentru sortarea descrescătoare după preț -->
+                <button id="calculare">Calculeaza prețuri</button> <!-- Buton pentru calcularea prețurilor -->
+            </p>
+            <div id="rezultateCalcul" style="display:none;"></div> <!-- Div pentru afișarea rezultatelor calculului -->
+        </div>
+
+        <section>
+            <h2>Mașini</h2> <!-- Titlul secțiunii -->
+            <div class="grid-produse"> <!-- Div pentru afișarea produselor într-o grilă -->
+                <% for (let masina of locals.masini) { %> <!-- Iterează prin lista de mașini și le afișează -->
+                    <article class="produs" id="artc-<%= masina.id %>"> <!-- Articol pentru fiecare mașină -->
+                        <div class="prima-coloana">
+                            <figure>
+                                <a href="/produs/<%= masina.id %>"><img src="/resurse/imagini/produse/<%= masina.imagine %>" style="width:500px;height:400px;" alt="[imagine <%= masina.nume %>]"></a> <!-- Imaginea mașinii -->
+                            </figure>
+                        </div>
+                        <div class="a-doua-coloana">
+                            <h3 class="nume"><a href="/produs/<%= masina.id %>" ><span class="val-nume"><%= masina.nume %></span></a></h3> <!-- Numele mașinii -->
+                            <div class="info-prod"> <!-- Informații despre mașină -->
+                                <p class="pret">Pret: <span class="val-pret"><%= masina.pret %></span></p>
+                                <p class="an_fabricatie">An fabricație: <span class="val-an_fabricatie"><%= masina.an_fabricatie %></span></p>
+                                <p class="tip_combustibil">Combustibil: <span class="val-tip_combustibil"><%= masina.tip_combustibil %></span></p>
+                            </div>
+                            <p class="tip_masina">Tip mașină: <span class="val-tip_masina"><%= masina.tip_masina %></span></p> <!-- Tipul mașinii -->
+                            <label class="selecteaza-cos">
+                                Selectează:<br />
+                                <input type="checkbox" class="select-cos" value="<%= masina.id %>" autocomplete="off"> <!-- Checkbox pentru selectarea mașinii -->
+                            </label>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <%- include("../fragmente/footer") %> <!-- Include fragmentul footer (probabil conține informații de contact și altele) -->
+
+    <script>
+        // Adaugă evenimentul click pentru butonul de filtrare
+        document.getElementById("filtrare").addEventListener("click", function() {
+            var nume = document.getElementById("inp-nume").value; // Obține valoarea din inputul de nume
+            var consumCombustibil = document.querySelector('input[name="gr_rad"]:checked').value; // Obține valoarea din grupul de radio buttons
+            var pretMinim = document.getElementById("inp-pret").value; // Obține valoarea din sliderul de preț minim
+            var tipMasina = document.getElementById("inp-tip_masina").value; // Obține valoarea din dropdownul de tip mașină
+
+            // Construiește query-ul pentru filtrare
+            var query = `?nume=${nume}&consum_combustibil=${consumCombustibil}&pret=${pretMinim}&tip_masina=${tipMasina}`;
+            window.location.href = "/produse" + query; // Redirecționează către pagina de produse cu query-ul construit
+        });
+
+        // Adaugă evenimentul click pentru butonul de resetare
+        document.getElementById("resetare").addEventListener("click", function() {
+            document.getElementById("inp-nume").value = ""; // Resetează inputul de nume
+            document.querySelector('input[name="gr_rad"][value="toate"]').checked = true; // Resetează radio button-ul
+            document.getElementById("inp-pret").value = 0; // Resetează sliderul de preț minim
+            document.getElementById("inp-tip_masina").value = "toate"; // Resetează dropdownul de tip mașină
+            window.location.href = "/produse"; // Redirecționează către pagina de produse fără query
+        });
+
+        // Adaugă evenimentul click pentru sortarea crescătoare după preț
+        document.getElementById("sortCrescPret").addEventListener("click", function() {
+            var query = new URLSearchParams(window.location.search); // Preia query-ul existent
+            query.set("sort", "asc"); // Setează parametru de sortare crescătoare
+            window.location.href = "/produse?" + query.toString(); // Redirecționează către pagina de produse cu query-ul actualizat
+        });
+
+        // Adaugă evenimentul click pentru sortarea descrescătoare după preț
+        document.getElementById("sortDescrescPret").addEventListener("click", function() {
+            var query = new URLSearchParams(window.location.search); // Preia query-ul existent
+            query.set("sort", "desc"); // Setează parametru de sortare descrescătoare
+            window.location.href = "/produse?" + query.toString(); // Redirecționează către pagina de produse cu query-ul actualizat
+        });
+
+        // Adaugă evenimentul click pentru butonul de calculare a prețurilor
+        document.getElementById("calculare").addEventListener("click", function() {
+            var preturi = document.querySelectorAll('.val-pret'); // Selectează toate elementele cu clasa 'val-pret'
+            var total = 0, min = Number.MAX_VALUE, max = 0, numar = preturi.length; // Inițializează variabilele pentru calcul
+
+            preturi.forEach(function(pret) { // Iterează prin toate prețurile
+                var valoare = parseFloat(pret.textContent); // Convertește textul la număr
+                total += valoare; // Adaugă la total
+                if (valoare < min) min = valoare; // Actualizează minimul dacă este cazul
+                if (valoare > max) max = valoare; // Actualizează maximul dacă este cazul
+            });
+
+            var medie = total / numar; // Calculează media
+            var rezultate = `Total: ${total.toFixed(2)}<br>Minim: ${min.toFixed(2)}<br>Maxim: ${max.toFixed(2)}<br>Medie: ${medie.toFixed(2)}`; // Formatează rezultatele
+            var divRezultate = document.getElementById('rezultateCalcul'); // Selectează div-ul pentru afișarea rezultatelor
+            divRezultate.innerHTML = rezultate; // Setează conținutul div-ului
+            divRezultate.style.display = 'block'; // Afișează div-ul
+            setTimeout(function() {
+                divRezultate.style.display = 'none'; // Ascunde div-ul după 2 secunde
+            }, 2000);
+        });
+
+        // Adaugă evenimentul input pentru sliderul de preț minim
+        document.getElementById("inp-pret").addEventListener("input", function() {
+            document.getElementById("infoRange").innerText = `(${this.value})`; // Actualizează textul din span-ul infoRange cu valoarea curentă a sliderului
+        });
+    </script>
+</body>
+</html>

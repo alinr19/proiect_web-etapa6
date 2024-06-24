@@ -1,0 +1,158 @@
+body{
+    --culoare1: #161bb3;
+    --culoare2:  #44c5e6;
+    --culoare3: #E61100;
+    --culoare4: #2225ce;
+    --culoare5:#073c59;
+    --culoare6:#ffffff;
+    --culoare7:rgb(2, 42, 80);
+    --culoare8:black;
+    --culoare9:rgb(130, 180, 245);
+    --spatiere: 100px;
+    --spatiere-medie: 70px;
+    --spatiere-mica: 40px;
+    padding-left: var(--spatiere);
+    padding-right: var(--spatiere);
+
+}
+
+
+  
+   @media screen and (min-width: 769px) 
+   {
+    body {
+      margin-left: var(--spatiere-medie); 
+      margin-right: var(--spatiere-medie)
+  
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    body {
+      margin-left: var(--spatiere-mica); 
+      margin-right: var(--spatiere-mica); 
+    }
+  }
+
+h2{
+   h2 {
+    border: 2px solid var(--culoare1); 
+    padding: 10px; 
+    background-color: var(--culoare2);
+    box-shadow: 5px 5px var(--culoare4); 
+    box-sizing: border-box; 
+}
+}
+h3 {
+    border: 2px solid var(--culoare4); 
+    padding: 10px;
+    background-color: var(--culoare2);
+    box-shadow: 5px 5px var(--culoare4);  
+    box-sizing: border-box; 
+}
+h4 {
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+    background-color: var(--culoare2); 
+    box-shadow: 5px 10px #070aa8; 
+    box-sizing: border-box; 
+}
+
+
+
+
+
+.containers_welcome{
+    border: 2px solid var(--culoare4); 
+    padding: 12px; 
+}
+
+.containers_orar{
+    border: 2px solid var(--culoare4); 
+    padding: 12px; 
+}
+
+.containers_promo{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+.containers_promo2{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+.containers_cars{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+.containers_galery{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+.containers_qanda{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+.containers_about_us{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+.containers_anunturi{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+.containers_adds{
+    border: 2px solid var(--culoare4); 
+    padding: 10px; 
+}
+
+
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 12px; 
+    }
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 14px; 
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    html {
+        font-size: 16px; 
+    }
+}
+
+h1,p {
+    transition: font-size 0.3s ease; 
+}
+
+#grid-pagina > section {
+    box-shadow: 2px 2px 3px 3px  var(--culoare4)
+}
+
+header, footer {
+    font-family: "Times New Roman", serif; 
+    padding: 5px;
+    border: var(--culoare4); 
+    box-shadow: 2px 2px 3px 3px  var(--culoare4); 
+    border-radius: 10px; 
+}
+
+h1, h2, h3, h4 {
+    font-family: "Big Shoulders Stencil Text", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}

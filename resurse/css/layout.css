@@ -1,0 +1,86 @@
+
+#grid-pagina{
+    display: grid; 
+    grid-template-columns: repeat(4 , 1fr);
+    grid-template-areas: "welcome    welcome    welcome    welcome   "
+                         "welcome    welcome    welcome    welcome   "
+                         "anunturi   orar       orar       promo     "
+                         "galery     galery     galery     galery    "
+                         "galery     galery     galery     galery    "
+                         "qanda      qanda      adds       about_us  ";
+    gap: 15px;
+
+}
+
+
+@media screen and (max-width: 1200px) {
+    #grid-pagina {
+        grid-gap: 10px; 
+    }
+}
+
+
+#grid-pagina>section{
+    padding: 1em;
+}
+
+
+#welcome{
+    grid-area: welcome;
+    overflow-x: auto;
+}
+
+#orar{
+    grid-area: orar;
+}
+#anunturi{
+
+    grid-area: anunturi;
+}
+#promo{
+    grid-area: promo;
+}
+
+#galery{
+    grid-area: galery ;
+}
+
+#qanda{
+    grid-area: qanda;
+}
+
+#about_us{
+    grid-area: about_us ;
+}
+
+#adds{
+    grid-area: adds ;
+}
+
+@media screen and (max-width: 1200px) 
+{
+    #grid-pagina {
+        justify-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+            "welcome welcome welcome welcome"
+            "welcome welcome welcome welcome"
+            "anunturi   anunturi   orar   promo"
+            "galery  galery  galery   galery"
+            "galery  galery  galery   galery"
+            "qanda   qanda   adds     about_us";
+        gap: 10px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 1000px) 
+{
+    #grid-pagina{
+        justify-content: center;
+        display: block;
+        grid-gap: 5px; 
+}
+}

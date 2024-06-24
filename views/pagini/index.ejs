@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--Comentariu-->
+<html lang="ro">
+
+
+<head>
+    <%- include("../fragmente/head.ejs") %>
+    <meta name="description" content="AUTOSELLER , reprezentata de vanzari masini cu site online .">
+    <meta name="keywords" content="AutoSeller,masini,bmw,audi,lamborghini,dacia,rate ">
+    <title>AutoSeller</title>
+    <button class="btn btn-primary">Contactează-ne</button>
+  </head>
+  <body>
+  <%- include("../fragmente/header.ejs") %>
+  
+  <main>
+    <div id="grid-pagina">
+
+      <section id="welcome">
+        <h2></h2>
+        <div class="containers_welcome">
+            <section id="reflection">
+                <div class="reflect-text">
+                    <h1 class="text">Bine ai venit la cel mai mare si vast targ de masini cu cea mai tare platforma online. AUTOSELL</h1>
+                    <h1 class="text-reflection">Bine ai venit la cel mai mare si vast targ de masini cu cea mai tare platforma online. AUTOSELL</h1>
+                </div>
+            </section>
+            <p></p>
+            <p></p>
+            <center>
+                <video controls poster="resurse/imagini/lambo_poster.jpg" preload="metadata">
+                    <source src="resurse/video/lambo.mp4" type="video/mp4">
+                    <source src="resurse/video/lambo.ogv" type="video/ogv">
+                    <track default src="resurse/video/mesaje_ro.vtt" kind="captions" srclang="ro" label="romana">
+                    <track src="resurse/video/mesaje_en.vtt" kind="captions" srclang="en" label="engleza">
+                    Your browser does not support the video tag.
+                </video>
+            </center>
+            <center><p><em><b>Atentie!: </b></em> În momentul în care alegi o masina , te astepam fizic la unul din targurile noastr din capitala.</p></center>
+        </div>
+     </section>
+
+
+
+
+        <section id="orar">
+           <h4>Program de lucru al Showroom-ului:</h4>
+           <div class="containers_orar">
+               <table id="tab-orar">
+                <thead>
+                    <tr>
+                        <th>Zi</th>
+                        <th>Ora de Început</th>
+                        <th>Ora de Sfârșit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Luni</td>
+                        <td>7:00</td>
+                        <td>18:00</td>
+                      </tr>
+                      <tr>
+                        <td>Marți</td>
+                        <td>7:00</td>
+                        <td>18:00</td>
+                      </tr>
+                      <tr>
+                        <td>Miercuri</td>
+                        <td>7:00</td>
+                        <td>18:00</td>
+                      </tr>
+                      <tr>
+                        <td>Joi</td>
+                        <td>7:00</td>
+                        <td>18:00</td>
+                      </tr>
+                      <tr>
+                        <td>Vineri</td>
+                        <td>7:00</td>
+                        <td>18:00</td>
+                      </tr>
+                      <tr>
+                        <td>Sâmbătă</td>
+                        <td>10:00</td>
+                        <td>14:00</td>
+                      </tr>
+                      <tr>
+                        <td>Duminică</td>
+                        <td>Liber</td>
+                        <td>Liber</td>
+                      </tr>
+                    </tbody>
+                
+                <tfoot><tr><td colspan="6">Este inchis de Paste , Craciun , Anul nou . Multumim pentru intelegere!</td></tr></tfoot>
+            </table> 
+        </section>
+
+
+
+
+
+        <section id="promo">
+            <h3>Calendar Evenimente:</h3>
+            <div class="containers_promo">
+             <p>In urmatoarea luna:</p>
+             <p>1. <b> DATA: 2  </b>: Incepand cu orele 12:00 , gama noastra de masini BMW este libera de vizitat , in special copiilor.</p>
+             <p>2. <b> DATA: 12 </b>: Intre orele 12:00 - 18:00 , parcul nostru implineste 12 ani de la infiintare !</p>
+             <p>3. <b> DATA: 28 </b>: Stocul masinilor va fi unul mult mai mare , gata de vanzare!</p>
+             <p>4. <b> DATA: 28 </b>:Din vara acestui an , studentii facultatii de matematica si informatica , au test drive gratuit la toate masinile</p>
+        </section>
+
+        
+
+        <section id="galery">
+          <h3>Galerie Masini:</h3>
+          <div class="containers_galery">
+            <% 
+              var vtimp = ["dimineata", "pranz", "seara"];
+              var d = new Date();
+              var timpCurenta = vtimp[Math.floor(d.getHours() / 8)];
+              var imaginiAfisate = imagini.filter(imag => imag.timp.includes(timpCurenta));
+              imaginiAfisate = imaginiAfisate.slice(0, 6); // Trunchiere la un număr divizibil cu 3
+            %>
+            <% imaginiAfisate.forEach((imag, index) => { %>
+                <div class="imag imag<%= index %>">
+                    <figure>
+                        <picture>
+                          <source srcset="<%= imag.fisier_mediu %>" media="(max-width:1200px)"/>
+                          <img class="galery-image" src="<%= imag.fisier %>" alt="<%= imag.continut_alternativ || imag.nume_poza %>"/>
+                        </picture>
+                        <figcaption>
+                            <p><%= imag.descriere %></p>
+                        </figcaption>
+                    </figure>
+                </div>
+            <% }) %>
+          </div>
+        </section>
+        
+
+        <section id="anunturi">
+            <h4>Anunturi:</h4> <p></p>
+          <div class ="containers_anunturi">
+              
+              <p>1. Angajam personal call centre , asteptam CV-ul la unul din Showroom-urile noastre.</p>
+              <p>2. Angajam Manager la unul din Showroom-urile noastre , asteptam CV-ul dumneavoastra.</p>
+              <p>3. Sambata 12.03.2024 , Showroom-urile sunt inchise !.</p>
+              <p>4. <b> DATA: 28 </b>: Pe data de 14.07.2024 , toate showroom-urile sunt inchis!</p>
+          </div>
+        </section>
+
+
+    <section id="qanda">
+        <h3>Întrebări și Răspunsuri:</h3>
+        <div class="containers_qanda">
+            <details>
+                <summary>Unde este gasesc Showroom-urile ?</summary>
+                <p>Piata Victoriei , Intrarea Doctor Iacob Felix Nr.2.</p>
+              </details>
+              <details>
+                <summary>Se poate face Drive Test?</summary>
+                <p>Cu siguranta ,Drive Testul este obligatoriu pentru a achizitiona un autoturism .</p>
+              </details>
+              <details>
+                <summary>Ce costuri implică verificarea masinii la AutoSeller?</summary>
+                <p>Totul este din partea casei , AutoSeller se gandeste la clientii lui astfel incat , noi suportam o parte din cheltuielile tale.</p>
+              </details>
+              <details>
+                <summary>Se poate face garantie la AutoSeller?</summary>
+                <p>Da, puteți alege să faceti garantie , pe 2 , 5 si chiar 10 ani.</p>
+              </details>
+              <details>
+                <summary>Se poate cumpara in rate?</summary>
+                <p>Acceptăm plăți in rate , pana la 10 , 12 , si chiar 15 ani.</p>
+              </details>
+              <details>
+                <summary> Se poate cumpara in leasing ?</summary>
+                <p>Da, pentru mai multe detalii , va asteptam la noi.</p>
+              </details>
+            </div>
+            </section>
+
+
+     <section id="about_us">
+        <h3>Despre noi:</h3>
+        <div class="containers_about_us">
+        <p>Cu o prezență constantă pe piața capitalei încă din 2010, AutoSeller a devenit un nume de referință în industria vânzărilor auto. Ne-am consolidat poziția ca una dintre cele mai mari și de încredere companii din București, bazându-ne pe experiență, integritate și pasiunea pentru mașini. Suntem recunoscuți pentru standardele noastre ridicate, pentru căutarea continuă a excelenței și pentru relațiile solide pe care le construim cu clienții noștri.</p>
+        <p>Vă mulțumim sincer pentru că ne-ați ales și pentru încrederea pe care ne-ați acordat-o de-a lungul anilor. e străduim să vă asigurăm că veți găsi cea mai bună ofertă și că veți pleca cu zâmbetul pe buze.</p>  
+    </section>
+
+
+ </script>
+
+
+ <section id="adds">
+  <h3>Reclame:</h3>
+  <p>În secțiunea "Reclame", vă invităm să descoperiți cum arata o prezentare a unei masini din showroom-ul nostru.</p>        
+
+  <div class="container-iframe">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1E4CDn4B7wo?si=DDrAFz5xPmgsamjH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="taburi-iframe">
+      <a href="https://www.youtube.com/watch?v=tk5B4GSbgD4" target="ifr-video">Audi</a>
+      <a href="https://www.youtube.com/watch?v=PkkV1vLHUvQ" target="ifr-video">BMW</a>
+      <a href="https://www.youtube.com/watch?v=QaEpYc3YLz4" target="ifr-video">Dacia</a>
+    </div>
+  </div>
+</section>
+</main>
+    
+<%- include("../fragmente/footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,123 @@
+@charset "UTF-8";
+body {
+  --inaltime-meniu: 3rem;
+}
+
+/* Ascunde submeniurile inițial și le poziționează absolut pe întreaga lățime a ecranului */
+nav ul.meniu ul {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+nav {
+  height: var(--inaltime-meniu);
+  width: 100%;
+  top: 0;
+  padding: 0;
+  background: transparent;
+  z-index: 10;
+  position: sticky;
+}
+
+nav ul.meniu > li {
+  float: left;
+  width: 100px;
+  position: relative;
+}
+
+nav ul, nav li {
+  padding: 0;
+  margin: 0;
+}
+
+nav ul.meniu li {
+  text-align: center;
+  list-style-type: none;
+  background: var(--culoare2);
+  cursor: pointer;
+  position: relative;
+}
+
+nav ul.meniu li a, nav ul.meniu li div {
+  text-decoration: none;
+  color: var(--culoare8);
+  display: block;
+  font-weight: bold;
+  height: var(--inaltime-meniu);
+  line-height: var(--inaltime-meniu);
+  outline: 1.5px solid rgb(1, 13, 194);
+}
+
+nav ul.meniu li a::before, nav ul.meniu li div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+  border: 1px solid var(--culoare4);
+  box-shadow: inset 0 0 10px var(--culoare4);
+  z-index: -1;
+}
+
+nav ul.meniu li a:hover::before, nav ul.meniu li div:hover::before {
+  transform: scaleY(1);
+}
+
+nav ul.meniu li a {
+  position: relative;
+  z-index: 1;
+}
+
+ul.meniu a, ul.meniu div {
+  transition: background 700ms linear;
+}
+
+nav ul.meniu > li:hover > ul {
+  display: block;
+  animation-name: aparitie_meniu;
+  animation-iteration-count: 1;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  transform-origin: 50% 0;
+}
+
+#hamburger {
+  display: none;
+  height: var(--inaltime-meniu);
+}
+
+#ch-menu {
+  display: none;
+}
+
+#hamburger img {
+  height: 100%;
+  width: auto;
+}
+
+#acasa-mediu {
+  display: none;
+}
+
+@keyframes aparitie_meniu {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  50% {
+    transform: scale(0.5, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+/*# sourceMappingURL=nav-test.css.map */

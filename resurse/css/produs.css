@@ -1,0 +1,87 @@
+main {
+    --padd-main: 1rem;
+    padding-left: var(--padd-main);
+    padding-right: var(--padd-main);
+    margin-top: 2rem;
+    background-color: transparent;
+}
+
+.section-masina {
+    border: 3px solid darkblue;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    background-color: transparent;
+    box-shadow: 0px 0px 0.8rem 0.3rem grey;
+    max-width: 800px;
+    margin: auto;
+}
+
+.section-masina h2 {
+    text-align: center;
+    color: darkblue;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+#art-masina {
+    border: 3px solid darkblue;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color:transparent;
+}
+
+#art-masina h3 {
+    text-align: center;
+    background-color: var(--culoare-roz-inchis);
+    padding: 0.5rem;
+    margin: 0 0 1rem 0;
+    border-radius: 0.5rem;
+    color: var(--culoare1); 
+}
+
+#art-masina p {
+    font-weight: bold;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+#art-masina .info-prod {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--cl-marcare);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#art-masina .info-prod p {
+    text-align: center;
+    width: 30%;
+}
+
+#art-masina .tip_masina, 
+#art-masina .dotari, 
+#art-masina .garantie, 
+#art-masina .data_adaugare {
+    text-align: center;
+    background-color: var(--cl-marcare);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#art-masina .imag-masina {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#art-masina .imag-masina img {
+    border: 1px solid grey;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+figure {
+    margin: 0;
+}
